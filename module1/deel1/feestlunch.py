@@ -1,9 +1,9 @@
-aantalCroissant = 25
-aantalStokbroden = 6
-aantalKortingsbonnen = 5
-croissantPrijs = aantal_croissant *0.39
-stokbrodenPrijs = aantal_stokbroden * 2.78
-kortingsbonnenPrijs = aantal_kortingsbonnen * 0.50
+aantalCroissant = int(input("Voer aantal crossiant in: "))
+aantalStokbroden = int(input("Aantal stokbroden: "))
+aantalKortingsbonnen = int(input("Aantal kb: "))
+croissantPrijs = aantalCroissant * float(0.39)
+stokbrodenPrijs = aantalStokbroden * float(2.78)
+kortingsbonnenPrijs = aantalKortingsbonnen * float(0.50)
 
 Intotaal = ((croissantPrijs + stokbrodenPrijs) - kortingsbonnenPrijs)
 
