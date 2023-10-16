@@ -1,39 +1,39 @@
-vraagkaas = input("is de kaas geel? ")
+vraagkaas = input("is de kaas geel? ").lower()
 
 # LINKS
 # is de kaas geel?
-if vraagkaas == "Ja":
+if vraagkaas == "ja":
     vraagg = input("Zitten er gaten in? ") # Zitten er gaten in
-    if vraagg == "Ja":
+    if vraagg == "ja":
         vraagd = input("Is de kaas belachelijk duur? ") # Is de kaas belachelijk duur?
-        if vraagd == "Ja":
+        if vraagd == "ja":
             print("Emmenthaler")
-        elif vraagd == "Nee":
+        elif vraagd == "nee":
             print("Leerdammer")
 
 
-    elif vraagg == "Nee":
+    elif vraagg == "nee":
         vraagh = input("Is de kaas hard als steen? ") #Is de kaas hard als steen?
-        if vraagh == "Ja":
+        if vraagh == "ja":
             print("Parmigiano Reggiano")
-        elif vraagh == "Nee":
+        elif vraagh == "nee":
             print("Goudse kaas")
         
 
 # RECHTS
-if vraagkaas == "Nee":
+if vraagkaas == "nee":
     vraagg = input("Heeft de kaas blauwe schimmel? ") # Heeft de kaas blauwe schimmel?
-    if vraagg == "Ja":
+    if vraagg == "ja":
         vraagd = input("Heeft de kaas korst?  ") # Heeft de kaas korst? 
-        if vraagd == "Ja":
+        if vraagd == "ja":
             print("Blue de Rochbaron")
-        elif vraagd == "Nee":
+        elif vraagd == "nee":
             print("Foume d'ambert ")
 
 
-    elif vraagg == "Nee":
+    elif vraagg == "nee":
         vraagh = input("Heeft de kaas korst? ") #Heeft de kaas korst?
-        if vraagh == "Ja":
+        if vraagh == "ja":
             print("Camembert")
-        elif vraagh == "Nee":
+        elif vraagh == "nee":
             print("Mozzarella")
