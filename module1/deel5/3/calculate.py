@@ -18,6 +18,14 @@ result1 = (number1 + number2) * number3
 result2 = multiply(add(number1, number2), number3)
 test('expression-1', result1, result2)
 
+result1 = number4 / (number3 - number2)
+result2 = divide(number4, substract(number3, number2))
+test('expression-2', result1, result2)
+
+result1 = (number1 * (number4 - number3)) / (number2 + number3)
+result2 = divide(multiply(number1, substract(number4, number3)), add(number2, number3))
+test('expression-3', result1, result2)
+
 result1 = (number4 - (number1 * (number4 - number3)) / (number2 + number3))
 result2 = substract(number4, divide(multiply(number1, substract(number4, number3)), add(number2, number3)))
 test('expression-4', result1, result2)
