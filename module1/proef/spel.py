@@ -16,7 +16,7 @@ verdwaald = "Helaas! Je bent verdwaald!"
 #if-s vraag 1
 
 
-if leeftijd < 18 and leeftijd > 0:
+if leeftijd < 18:
 
         print("Helaas, je mag niet meedoen omdat je jonger bent dan 18 jaar")
 
