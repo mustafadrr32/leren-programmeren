@@ -1,29 +1,5 @@
 
-# from RobotArm import RobotArm
 
-# robotArm = RobotArm('exercise 3')
-
-# # Jouw python instructies zet je vanaf hier:
-
-# robotArm.grab()
-# robotArm.moveRight()
-# robotArm.drop()
-# robotArm.moveLeft()
-# robotArm.grab()
-# robotArm.moveRight()
-# robotArm.drop()
-# robotArm.moveLeft()
-# robotArm.grab()
-# robotArm.moveRight()
-# robotArm.drop()
-# robotArm.moveLeft()
-# robotArm.grab()
-# robotArm.moveRight()
-# robotArm.drop()
-# robotArm.moveLeft()
-# robotArm.wait()
-
-# <--------------------------------------------------> Oefening 3
 
 
 # from RobotArm import RobotArm
