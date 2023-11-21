@@ -1,8 +1,6 @@
 
 
 
-# <-------- oefening 5 ------ >
-
 # from RobotArm import RobotArm
 # robotArm = RobotArm('exercise 6')
 
