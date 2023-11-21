@@ -2,7 +2,7 @@ from RobotArm import RobotArm
 
 robotArm = RobotArm('exercise 2')
 
-
+#xd
 robotArm.grab()
 robotArm.moveRight()
 robotArm.moveRight()
