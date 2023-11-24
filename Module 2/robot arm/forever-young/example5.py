@@ -5,49 +5,83 @@ robotArm = RobotArm('exercise 5')
 
 # Jouw python instructies zet je vanaf hier:
 
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
+for i in range(7):
+    robotArm.moveRight()
+
+
 robotArm.grab()
+
+
 robotArm.moveRight()
 robotArm.drop()
-robotArm.moveLeft()
-robotArm.moveLeft()
+
+for i in range(2):
+    robotArm.moveLeft()
+
+
 robotArm.grab()
+
 robotArm.moveRight()
+
 robotArm.drop()
-robotArm.moveLeft()
-robotArm.moveLeft()
+
+for i in range(2):
+
+    robotArm.moveLeft()
+
+
 robotArm.grab()
+
 robotArm.moveRight()
+
 robotArm.drop()
-robotArm.moveLeft()
-robotArm.moveLeft()
+
+for i in range(2):
+    robotArm.moveLeft()
+
 robotArm.grab()
+
+
 robotArm.moveRight()
+
 robotArm.drop()
-robotArm.moveLeft()
-robotArm.moveLeft()
+
+for i in range(2):
+
+    robotArm.moveLeft()
+
 robotArm.grab()
+
 robotArm.moveRight()
+
 robotArm.drop()
-robotArm.moveLeft()
-robotArm.moveLeft()
+
+for i in range(2):
+    robotArm.moveLeft()
+
 robotArm.grab()
+
 robotArm.moveRight()
+
 robotArm.drop()
-robotArm.moveLeft()
-robotArm.moveLeft()
+
+for i in range(2):
+    robotArm.moveLeft()
+
 robotArm.grab()
+
 robotArm.moveRight()
+
 robotArm.drop()
-robotArm.moveLeft()
-robotArm.moveLeft()
+
+for i in range(2):
+    robotArm.moveLeft()
+
+
 robotArm.grab()
+
 robotArm.moveRight()
+
 robotArm.drop()
+
 robotArm.wait()

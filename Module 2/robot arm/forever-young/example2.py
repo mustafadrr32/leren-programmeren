@@ -2,35 +2,38 @@ from RobotArm import RobotArm
 
 robotArm = RobotArm('exercise 2')
 
-#xd
 robotArm.grab()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
+
+for i in range(9):
+
+    robotArm.moveRight()
+
 robotArm.drop()
-robotArm.moveLeft()
-robotArm.moveLeft()
+
+for i in range(2):
+
+    robotArm.moveLeft()
+
+
 robotArm.grab()
-robotArm.moveRight()
-robotArm.moveRight()
+
+for i in range(2):
+
+    robotArm.moveRight()
+
 robotArm.drop()
-robotArm.moveLeft()
-robotArm.moveLeft()
-robotArm.moveLeft()
-robotArm.moveLeft()
-robotArm.moveLeft()
+
+
+for i in range(5):
+    robotArm.moveLeft()
+
+
 robotArm.grab()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.moveRight()
+
+for i in range(5):
+
+    robotArm.moveRight()
+
 robotArm.drop()
 robotArm.wait()
 
