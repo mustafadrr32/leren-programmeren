@@ -16,19 +16,12 @@ vertaal = {
 
 }
 
-x = input("")
-words = x.split()
+zin = input("voer in:")
+
+woorden = zin.split()
 vertaling = ""
-for word in words:
-    vertaald = vertaal.get(word.lower(), word)
-    vertaling += vertaald + " "
+for woord in woorden:
+    vertaald_woord = vertaal.get(woord.lower(), woord)
+    vertaling += vertaald_woord + " "
 
-print("Vertaald: ")
-print(vertaald)
-    
-
-
-
-#In het hart van de grot zagen ze Draganthor, met zijn glinsterende schubben en vurige ogen. De draak brulde en spuwde een vlammenzee die hen bedreigde, maar Rurik beschermde hen met een krachtig schild van magie.
-#Bij de ingang van de grot zagen ze Draganthor, met zijn glinsterende teennagels en waterende ogen. De geit brulde en spuwde een golf van water die hen bedreigde, maar Rurik beschermde hen met een krachtig zwemvliezen van plastic.
-
+print(vertaling)
