@@ -3,16 +3,11 @@ robotArm = RobotArm('exercise 11')
 robotArm.speed = 3
 # Jouw python instructies zet je vanaf hier:
 for x in range(9):
-        robotArm.moveRight()
-aantal = 0
-
-    
-    
+        robotArm.moveRight()    
 
 for x in range(9):
-        aantal += 1
-        for x in range(1):
-            robotArm.moveLeft()
+       
+        robotArm.moveLeft()
         robotArm.grab()
         color = robotArm.scan()
         if color == "white":

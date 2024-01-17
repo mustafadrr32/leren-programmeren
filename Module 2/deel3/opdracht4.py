@@ -1,10 +1,9 @@
 totaal = 0
-current_number = 50
-iteration = 1
+current_number = 20
+iteration = 3
 
-while totaal <= 1000:
+while totaal <= 2000:
         totaal += current_number
-        print(f"{iteration}. {'+'.join(map(str, range(50, current_number + 1)))} = {totaal}")
-        current_number += 1
-        iteration += 1
-
+        print(f"{iteration}. {'+'.join(map(str, range(36, current_number + 3)))} = {totaal}")
+        current_number += 3
+        iteration += 36
