@@ -1,6 +1,15 @@
 from fruitmand import fruitmand
-fruitmandpop = fruitmand.pop(4)
-x = 0
-for y in range(6):
-    print(fruitmand[x]['color'])
-    x += 1
+
+for x in range(len(fruitmand)):
+
+    if fruitmand[x]['name'] == "druif":
+        print("druif gevonden")
+        fruitmand.pop(x)
+        break
+lijst = []
+for x in range(len(fruitmand)):
+    
+    
+    if fruitmand[x]['color'] not in lijst:
+        lijst.append(fruitmand[x]['color'])
+print(lijst)
