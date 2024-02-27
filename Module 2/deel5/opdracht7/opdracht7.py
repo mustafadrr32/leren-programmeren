@@ -1,8 +1,6 @@
 from fruitmand import fruitmand
 
-x = 0
-for x in range(7):
+for x in range(len(fruitmand)):
     if fruitmand[x]['round'] == True:
         print(fruitmand[x]['name'])
-        x += 1
         

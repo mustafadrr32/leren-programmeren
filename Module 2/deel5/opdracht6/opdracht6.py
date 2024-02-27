@@ -1,2 +1,7 @@
 from fruitmand import fruitmand 
-print(f"appel gewicht: {fruitmand[1]['weight']}")
+
+
+for x in range(len(fruitmand)):
+    
+    if fruitmand[x]['name'] == "appel":
+        print(f"{fruitmand[x]['weight']} ")

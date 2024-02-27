@@ -1,4 +1,4 @@
 from fruitmand import fruitmand
-for x in range(7):
+for x in range(len(fruitmand)):
     fruitmand.reverse()
-    print(fruitmand[x]['name'])
+    print(fruitmand[x]['name']) 
