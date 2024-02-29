@@ -4,7 +4,7 @@ mensen = []
 
 print('Je gaat min. 3 namen invoeren. ')
 while True:
-    naam = input("Voer de naam of typ klaar als je klaar bent: ").lower()
+    naam = input("Voer een naam  !klaar als je klaar bent! : ").lower()
     if naam == "klaar":
         break
     if naam:
@@ -25,3 +25,6 @@ else:
     print("Lootjes:")
     for deelnemer, lootje in zip(mensen, lootjes):
         print(f"{deelnemer}: {lootje}")
+
+
+        # ZIP UITLEGGEN
