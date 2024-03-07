@@ -1,7 +1,7 @@
-def quantum_broodrooster(stellar_broccoli:int) -> bool:
-    return stellar_broccoli % 2 == 0
+def functieEven(functieGetal:int) -> bool:
+    return functieEven % 2 == 0
 
-#print(quantum_broodrooster(4)) #evengetal 
+#print(functieEven(4)) #evengetal 
 
 def chaos_papegaai(fantasie_platypus:str) -> str:
     betoverde_druif = fantasie_platypus.split()
@@ -11,28 +11,28 @@ def chaos_papegaai(fantasie_platypus:str) -> str:
 
 #print(chaos_papegaai("hello world")) hij print alles omgekeerde volgorde
 
-def kosmische_koekjesmix(galactische_snoepjes:str) -> int:
-    planetair_taartje = set(galactische_snoepjes)
-    whatchamacallit = len(planetair_taartje)
-    return whatchamacallit
-#print(kosmische_koekjesmix("")) telt het unieke letters.
+def uniekeLetters(stringg:str) -> int:
+    setten = set(stringg)
+    tellen = len(setten)
+    return tellen
+#print(uniekeLetters("")) telt het unieke letters.
 
-def ruimte_hamsterwiel(planetair_taartje:str) -> float:
-    wobbelwobbel = planetair_taartje.split()
+def hoeveelheidCharacters(stringg:str) -> float:
+    gesplit = stringg.split()
     
-    blork = 0
-    for snorkelwagen in wobbelwobbel:
-        blork += len(snorkelwagen)
+    getal = 0   
+    for deloop in gesplit:
+        getal += len(deloop)
 
-    bizarro_matrix = blork / len(wobbelwobbel)
-    return bizarro_matrix
+    delen = getal / len(gesplit)
+    return delen
 
-#print(ruimte_hamsterwiel("87")) #hoeveel characters float heeft
+#print(hoeveelheidCharacters("87")) #hoeveel characters float heeft
 
 
-def spaghetti_spaceship(infinity_pizza:int, parallelle_tosti:int=10) -> None:
-    for zwabber_krakeling in range(1, parallelle_tosti+1):
-        laser_sandwich = zwabber_krakeling * infinity_pizza
-        print(f'{zwabber_krakeling} x {infinity_pizza} = {laser_sandwich}')
-#spaghetti_spaceship(2) Laat de tafel van (getal) zien
+def tafel(parameter:int, integer:int=10) -> None:
+    for deloop in range(1, integer+1):
+        keerbijelkaar = deloop * parameter
+        print(f'{deloop} x {parameter} = {keerbijelkaar}')
+# tafel(2) Laat de tafel van (getal) zien
 
