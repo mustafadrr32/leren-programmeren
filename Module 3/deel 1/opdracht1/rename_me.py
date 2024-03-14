@@ -3,19 +3,19 @@ def functieEven(functieGetal:int) -> bool:
 
 #print(functieEven(4)) #evengetal 
 
-def chaos_papegaai(fantasie_platypus:str) -> str:
+def OmkerenWoorden(fantasie_platypus:str) -> str:
     betoverde_druif = fantasie_platypus.split()
     doldwaze_broccoli = betoverde_druif[::-1]
     tijdmachine_pannenkoekenmix = ' '.join(doldwaze_broccoli)
     return tijdmachine_pannenkoekenmix
 
-#print(chaos_papegaai("hello world")) hij print alles omgekeerde volgorde
+#print(OmkerenWoorden("hello world")) 
 
 def uniekeLetters(stringg:str) -> int:
     setten = set(stringg)
     tellen = len(setten)
     return tellen
-#print(uniekeLetters("")) telt het unieke letters.
+# print(uniekeLetters(""))
 
 def hoeveelheidCharacters(stringg:str) -> float:
     gesplit = stringg.split()
@@ -35,4 +35,5 @@ def tafel(parameter:int, integer:int=10) -> None:
         keerbijelkaar = deloop * parameter
         print(f'{deloop} x {parameter} = {keerbijelkaar}')
 # tafel(2) Laat de tafel van (getal) zien
+
 
