@@ -1,9 +1,9 @@
-def functie1():
+def functie1() -> dict:
     naam = input("Wat is je naam? ")
     leeftijd = input("Wat is je leeftijd? ")
     return {'name': naam, 'age': leeftijd}
 
-def functie2():
+def functie2() -> list:
     gegevens = []
     while True:
         invoer = input("Toets enter om door te gaan of stop om te printen: ")
