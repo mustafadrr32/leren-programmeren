@@ -1,6 +1,9 @@
+from itertools import count
 import time
 from termcolor import colored
 from data import JOURNEY_IN_DAYS
+from data import COST_FOOD_HORSE_COPPER_PER_DAY
+from data import COST_FOOD_HUMAN_COPPER_PER_DAY
 
 ##################### O03 #####################
 
@@ -34,22 +37,43 @@ print(getPersonCashInGold(personCash))
 
 ##################### O05 #####################
 
-def getJourneyFoodCostsInGold(people:int, horses:int) -> float:
-    pass
+def getJourneyFoodCostsInGold(people:int, horses:int) -> float: 
+    total_cost_copper = (people * COST_FOOD_HUMAN_COPPER_PER_DAY + horses * COST_FOOD_HORSE_COPPER_PER_DAY) * JOURNEY_IN_DAYS
+    return copper2gold(total_cost_copper)
+    
+    
+
 
 ##################### O06 #####################
 
 def getFromListByKeyIs(list:list, key:str, value:any) -> list:
-    pass
+    testarg_list_alltests = [{
+        'name' : 'Pie',
+        'tasty' : True,
+        'round' : True
+    },{
+        'name' : 'Fries',
+        'tasty' : True,
+        'round' : False
+    },{
+        'name' : 'Soccerball',
+        'tasty' : False,
+        'round' : True
+    }]
+    
+    return [item for item in list if item.get(key) == value] 
+
+def getFromListByKeyIs(list:list, key:str, value:any) -> list:
+    return [item for item in list if item.get(key) == value] 
 
 def getAdventuringPeople(people:list) -> list:
-    pass
+    return getFromListByKeyIs(people, 'adventuring', True)
 
 def getShareWithFriends(friends:list) -> list:
-    pass
+    return getFromListByKeyIs(friends, 'shareWith', True)
 
 def getAdventuringFriends(friends:list) -> list:
-    pass
+    return [friend for friend in friends if friend.get('adventuring', False) and friend.get('shareWith', False)]
 
 ##################### O07 #####################
 
