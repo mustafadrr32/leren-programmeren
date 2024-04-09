@@ -1,9 +1,12 @@
 from itertools import count
 import time
+import math
 from termcolor import colored
 from data import JOURNEY_IN_DAYS
 from data import COST_FOOD_HORSE_COPPER_PER_DAY
+from data import COST_TENT_GOLD_PER_WEEK
 from data import COST_FOOD_HUMAN_COPPER_PER_DAY
+from data import COST_HORSE_SILVER_PER_DAY
 
 ##################### O03 #####################
 
@@ -13,8 +16,8 @@ def copper2silver(amount:int) -> float:
 def silver2gold(amount:int) -> float:
     return round(amount / 5,2)
 
-def copper2gold(amount:int) -> float:
-    return silver2gold(copper2silver(amount))
+def copper2gold(amount: int) -> float:
+    return round(amount / 100, 2)
 
 def platinum2gold(amount:int) -> float:
     return round(amount * 25,2)
@@ -77,14 +80,17 @@ def getAdventuringFriends(friends:list) -> list:
 
 ##################### O07 #####################
 
-def getNumberOfHorsesNeeded(people:int) -> int:
-    pass
+def getNumberOfHorsesNeeded(people: int) -> int:
+    return math.ceil(people / 2)  
 
-def getNumberOfTentsNeeded(people:int) -> int:
-    pass
+def getNumberOfTentsNeeded(people: int) -> int:
+    return math.ceil(people / 3)  
 
-def getTotalRentalCost(horses:int, tents:int) -> float:
-    pass
+def getTotalRentalCost(horses: int, tents: int) -> float:
+      horse_food_cost = horses * silver2gold(COST_HORSE_SILVER_PER_DAY) * JOURNEY_IN_DAYS
+      tent_cost = tents * COST_TENT_GOLD_PER_WEEK * math.ceil(JOURNEY_IN_DAYS / 7)
+      total = horse_food_cost + tent_cost
+      return total
 
 ##################### O08 #####################
 
