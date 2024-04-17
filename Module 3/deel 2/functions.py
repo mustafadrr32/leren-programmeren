@@ -10,14 +10,14 @@ from data import COST_HORSE_SILVER_PER_DAY
 
 ##################### O03 #####################
 
-def copper2silver(amount:int) -> float:
+def copper2silver(amount: int) -> float:
     return round(amount / 10,2)
 
-def silver2gold(amount:int) -> float:
-    return round(amount / 5,2)
+def silver2gold(amount: int) -> float:
+    return round(amount / 5, 2)
 
 def copper2gold(amount: int) -> float:
-    return round(amount / 100, 2)
+    return silver2gold(copper2silver(amount))
 
 def platinum2gold(amount:int) -> float:
     return round(amount * 25,2)
@@ -50,23 +50,6 @@ def getJourneyFoodCostsInGold(people:int, horses:int) -> float:
 ##################### O06 #####################
 
 def getFromListByKeyIs(list:list, key:str, value:any) -> list:
-    testarg_list_alltests = [{
-        'name' : 'Pie',
-        'tasty' : True,
-        'round' : True
-    },{
-        'name' : 'Fries',
-        'tasty' : True,
-        'round' : False
-    },{
-        'name' : 'Soccerball',
-        'tasty' : False,
-        'round' : True
-    }]
-    
-    return [item for item in list if item.get(key) == value] 
-
-def getFromListByKeyIs(list:list, key:str, value:any) -> list:
     return [item for item in list if item.get(key) == value] 
 
 def getAdventuringPeople(people:list) -> list:
@@ -94,11 +77,46 @@ def getTotalRentalCost(horses: int, tents: int) -> float:
 
 ##################### O08 #####################
 
-def getItemsAsText(items:list) -> str:
-    pass
+def getItemsAsText(items: list) -> str:
+    item_texts = []
+    for i, item in enumerate(items):
+        if item['amount'] == 1:
+            text = f"{item['amount']} {item['name']}"
+        else:
+            text = f"{item['amount']}{item.get('unit', '')} {item['name']}"
+        
+        if item['name'] == 'Voetbal':
+            text = f"1 ronde {item['name']}"
+        elif item['name'] == 'Cola':
+            text = f"1l {item['name']}"
+        
+        if i < len(items) - 2:
+            text += ', '
+        elif i == len(items) - 2:
+            text += ' & '  
+        item_texts.append(text)
+    return ''.join(item_texts)
 
 def getItemsValueInGold(items:list) -> float:
-    pass
+    totalPriceInGold = 0.0
+ 
+    for item in items:
+        priceInGold = item['price']['amount']
+        if item['price']['type'] == 'silver':
+            priceInGold = silver2gold(priceInGold)
+        elif item['price']['type'] == 'copper':
+            priceInGold = copper2gold(priceInGold)
+        elif item['price']['type'] == 'platinum':
+            priceInGold = platinum2gold(priceInGold)
+ 
+        totalPriceInGold += priceInGold * item['amount']
+ 
+    return round(totalPriceInGold,2)
+
+
+
+
+
 
 ##################### O09 #####################
 
