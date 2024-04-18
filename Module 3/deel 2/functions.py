@@ -99,7 +99,7 @@ def getItemsAsText(items: list) -> str:
 
 def getItemsValueInGold(items:list) -> float:
     totalPriceInGold = 0.0
- 
+    
     for item in items:
         priceInGold = item['price']['amount']
         if item['price']['type'] == 'silver':
@@ -120,9 +120,14 @@ def getItemsValueInGold(items:list) -> float:
 
 ##################### O09 #####################
 
-def getCashInGoldFromPeople(people:list) -> float:
-    pass
-
+def getCashInGoldFromPeople(people: list) -> float:
+    total_cash_in_gold = 0.0
+    
+    for person in people:
+        person_cash_in_gold = getPersonCashInGold(person['cash'])
+        total_cash_in_gold += person_cash_in_gold
+    
+    return round(total_cash_in_gold, 2)
 ##################### O10 #####################
 
 def getInterestingInvestors(investors:list) -> list:
