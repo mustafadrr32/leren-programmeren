@@ -130,14 +130,30 @@ def getCashInGoldFromPeople(people: list) -> float:
     return round(total_cash_in_gold, 2)
 ##################### O10 #####################
 
-def getInterestingInvestors(investors:list) -> list:
-    pass
+def getInterestingInvestors(investors: list) -> list:
+    interesing = [] 
+    for x in range(len(investors)):
+        investers = investors['profitReturn']
+        if investers < 10:
+            interesing.append(investors[x])
 
-def getAdventuringInvestors(investors:list) -> list:
-    pass
+    return interesing
+
+def getAdventuringInvestors(investors:list) -> list: 
+    AdventurI = []
+    for investor in investors:  
+        if investor["adventuring"] == True and investor["profitReturn"] <= 10 :
+            AdventurI.append(investor)
+
+    return AdventurI
 
 def getTotalInvestorsCosts(investors:list, gear:list) -> float:
-    pass
+    ainvest = len(getAdventuringInvestors(investors))  
+    etentotaal = getJourneyFoodCostsInGold(ainvest, ainvest)
+    rentaltotaal = getTotalRentalCost(ainvest, ainvest) 
+    var1 = getItemsValueInGold(gear)
+
+    return round(etentotaal + rentaltotaal + (ainvest * var1), 2 )
 
 ##################### O11 #####################
 
