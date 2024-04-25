@@ -7,6 +7,8 @@ from data import COST_FOOD_HORSE_COPPER_PER_DAY
 from data import COST_TENT_GOLD_PER_WEEK
 from data import COST_FOOD_HUMAN_COPPER_PER_DAY
 from data import COST_HORSE_SILVER_PER_DAY
+from data import COST_INN_HUMAN_SILVER_PER_NIGHT
+from data import COST_INN_HORSE_COPPER_PER_NIGHT
 
 ##################### O03 #####################
 
@@ -43,9 +45,6 @@ print(getPersonCashInGold(personCash))
 def getJourneyFoodCostsInGold(people:int, horses:int) -> float: 
     total_cost_copper = (people * COST_FOOD_HUMAN_COPPER_PER_DAY + horses * COST_FOOD_HORSE_COPPER_PER_DAY) * JOURNEY_IN_DAYS
     return copper2gold(total_cost_copper)
-    
-    
-
 
 ##################### O06 #####################
 
@@ -157,11 +156,25 @@ def getTotalInvestorsCosts(investors:list, gear:list) -> float:
 
 ##################### O11 #####################
 
-def getMaxAmountOfNightsInInn(leftoverGold:float, people:int, horses:int) -> int:
-    pass
+def getMaxAmountOfNightsInInn(leftoverGold: float, people: int, horses: int) -> int:
+    maximale = leftoverGold / getJourneyInnCostsInGold(1, people, horses)
+    return int(maximale)
 
 def getJourneyInnCostsInGold(nightsInInn:int, people:int, horses:int) -> float:
-    pass
+    aantalman = silver2gold(COST_INN_HUMAN_SILVER_PER_NIGHT) * people
+    paardkost = copper2gold(COST_INN_HORSE_COPPER_PER_NIGHT) * horses
+    nacht1kosten = aantalman + paardkost
+    kosten = nightsInInn * nacht1kosten
+    return round(kosten,2)
+def getInvestorsCuts(profitGold: float, investors: list) -> list:
+    adinvesters = []
+    adinvesters = getInterestingInvestors(investors)
+    for advainvester in adinvesters:
+        profit = advainvester['profitReturn']
+        procent = profit / 100
+        investcut = procent * profitGold
+        adinvesters.append(round(investcut, 2))
+    return adinvesters
 
 ##################### O13 #####################
 
