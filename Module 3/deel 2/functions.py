@@ -132,7 +132,6 @@ def getCashInGoldFromPeople(people: list) -> float:
 def getInterestingInvestors(investors: list):
     interesing = [] 
     for x in range(len(investors)):
-        print(investors)
         investor = investors[x]
         if investor['profitReturn'] < 10:
             interesing.append(investors[x])
