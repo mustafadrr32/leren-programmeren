@@ -1,15 +1,15 @@
 import math
 
 # Constants for unit names
-UNIT_PIECES = 'piece'
-UNIT_SPOONS = 'spoon'
-UNIT_TEASPOONS = 'teaspoon'
-UNIT_CUPS = 'cup'
+UNIT_PIECES = 'stuk|stuks'
+UNIT_SPOONS = 'eetlepel|eetlepels'
+UNIT_TEASPOONS = 'theelepel|theelepels'
+UNIT_CUPS = 'kopje|kopjes'
 
-TXT_PIECES = '|'
-TXT_SPOONS = 'eetlepel|eetlepels'
-TXT_TEASPOONS = 'theelepel|theelepels'
-TXT_CUPS = 'kopje|kopjes'
+# Constants for conversion to ml
+ML_SPOON = 15 # one spoon contains 15 ml
+ML_TEASPOON = 5 # one teaspoon contains 5 ml
+ML_CUP = 240 # one cup contains 240 ml
 
 # Failsafe input of a number of persons
 def input_nr_persons(prompt: str) -> int:
@@ -53,23 +53,7 @@ def str_amount_fraction(amount: float) -> str:
     str_ints = str(ints) if ints > 0 else ''
     return str_ints + TXT_FRACTIONS[quarter]
 
-
-# units in ml
-ML_SPOON = 15 # one spoon contains 15 ml
-ML_TEASPOON = 5 # one teaspoon contains 5 ml
-ML_CUP = 240 # one cup contains 240 ml
-
-def unit2ml(amount: float, unit: str) -> float:
-  pass
-
-# average densities in gram per ml for common ingredients, to calculate weight(gram) from milliliters(ml)
-# 1ml of salt weighs 1.2 gram 
-GRAM_PER_ML_SALT = 1.2
-GRAM_PER_ML_PEPPER = 0.3
-GRAM_PER_ML_CHEESE = 0.45
-GRAM_PER_ML_SPINACH = 0.15
-
-# Function to convert units to milliliters (optional, for more detailed calculations)
+# Function to convert units to milliliters
 def unit2ml(amount: float, unit: str) -> float:
     if unit == UNIT_SPOONS:
         return amount * ML_SPOON
@@ -77,10 +61,14 @@ def unit2ml(amount: float, unit: str) -> float:
         return amount * ML_TEASPOON
     elif unit == UNIT_CUPS:
         return amount * ML_CUP
-    return amount
+    else:
+        raise TypeError(f"Unsupported unit: {unit}")
 
-
-
+# Constants for density (gram per ml)
+GRAM_PER_ML_SALT = 1.2
+GRAM_PER_ML_PEPPER = 0.3
+GRAM_PER_ML_CHEESE = 0.45
+GRAM_PER_ML_SPINACH = 0.15
 
 # Returns amount in grams for amount in milliliters based on density (weight per volume)
 def ml2gram(amount_ml: float, gram_per_ml: float) -> float:
