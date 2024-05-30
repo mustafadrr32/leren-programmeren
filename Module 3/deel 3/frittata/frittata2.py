@@ -57,7 +57,7 @@ print(f'Ingrediënten voor {nr_persons} personen:')
 print('-----------------------------------------------')
 # print (formatted) all amounts and units combined with their ingredient descriptions
 print("*", str_amount_fraction(total_egg), str_single_plural(total_egg, TXT_EGGS))
-print("*", str_amount_fraction(total_milk), str_units(total_milk, TXT_CUPS))
+print("*", str_amount_fraction(total_milk), str_units(total_milk, TXT_CUPS), TXT_MILK)
 print("*", str_amount_fraction(total_salt), str_units(total_salt, TXT_TEASPOONS))
 print("*", str_amount_fraction(total_pepper), str_units(total_pepper, TXT_TEASPOONS))
 print("*", str_amount_fraction(total_oil), str_units(total_oil, TXT_SPOONS))

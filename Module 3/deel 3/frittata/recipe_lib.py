@@ -11,6 +11,11 @@ ML_SPOON = 15 # one spoon contains 15 ml
 ML_TEASPOON = 5 # one teaspoon contains 5 ml
 ML_CUP = 240 # one cup contains 240 ml
 
+TXT_PIECES = '|'
+TXT_SPOONS = 'eetlepel|eetlepels'
+TXT_TEASPOONS = 'theelepel|theelepels'
+TXT_CUPS = 'kopje|kopjes'
+
 # Failsafe input of a number of persons
 def input_nr_persons(prompt: str) -> int:
     while True:
