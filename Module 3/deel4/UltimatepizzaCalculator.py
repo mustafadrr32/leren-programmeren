@@ -4,7 +4,8 @@ def get_pizza_prices():
     return {
         'Small': 7.99,
         'Medium': 9.99,
-        'Large': 11.99
+        'Large': 11.99,
+        'X-Large': 13.99,
     }
 
 def get_pizza_order():
