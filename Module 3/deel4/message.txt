@@ -1,33 +1,48 @@
 import time
 import sys
+from termcolor import colored
 
-def slow_print(s):
-    for c in s:
-        sys.stdout.write(c)
-        sys.stdout.flush()
-        time.sleep(0.02)
-    print("")
+def slow_print(text, delay=0.05):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(delay)
+    print()
+
+def exit_program():
+    slow_print("\nExiting program...")
+    sys.exit(0)
+
+leeftijd = int(input("Voer je leeftijd in: "))
+if leeftijd < 10:
+    slow_print("Je bent te jong om dit spel te spelen. Je avontuur eindigt hier.")
+    exit_program()
+else:
+    slow_print("Welkom bij het avonturenspel, we gaan zo beginnen. ")
 
 def kies_karakter():
-    opties = {
-        "1": "Spiderman",
-        "2": "Donald Duck",
-        "3": "Barbie",
-        "4": "Peter Pan"
-    }
-    
-    slow_print("Kies een karakter:")
-    for key, value in opties.items():
-        slow_print(f"{key}. {value}")
-        
-    keuze = input("> ")
-    karakter = opties.get(keuze)
-    
-    if karakter:
-        return karakter
+    slow_print("Kies je karakter:", 0.03)
+    slow_print("1. Spiderman", 0.03)
+    time.sleep(0.5)
+    slow_print("2. Donald Duck", 0.03)
+    time.sleep(0.5)
+    slow_print("3. Barbie", 0.03)
+    time.sleep(0.5)
+    slow_print("4. Peter Pan", 0.03)
+    time.sleep(0.5)
+    keuze_prompt = colored("Voer het nummer van je keuze in: ", 'green', attrs=['bold'])
+    keuze = input(keuze_prompt)
+
+    if keuze == "1":
+        return "Spiderman"
+    elif keuze == "2":
+        return "Donald Duck"
+    elif keuze == "3":
+        return "Barbie"
+    elif keuze == "4":
+        return "Peter Pan"
     else:
         slow_print("Ongeldige keuze, probeer het opnieuw.")
-        return None
+        return None  # Hier kun je ervoor kiezen om een standaardwaarde of iets dergelijks terug te geven.
 
 gekozen_karakter = kies_karakter()
 
@@ -52,17 +67,15 @@ vragen = [
 
 score = 0
 for vraag, opties, correct_antwoord in vragen:
-    slow_print(vraag)
+    slow_print(f"\n{vraag}")
     for optie in opties:
-        slow_print(optie)
-    antwoord = input("> ")
-    if antwoord == correct_antwoord:
+        slow_print(optie, 0.03)
+    antwoord = input("Wat is je antwoord (a, b, of c)?: ")
+    if antwoord.lower() == correct_antwoord:
+        slow_print("Goed! Je gaat verder.")
         score += 1
     else:
-        slow_print("Helaas, dat was het verkeerde antwoord.")
-        break
+        slow_print("Helaas, het avontuur eindigt hier.")
+        exit_program()
 
-if score == len(vragen):
-    slow_print("Gefeliciteerd, je hebt het spel gewonnen!")
-else:
-    slow_print("Helaas, je hebt het spel verloren. Probeer het opnieuw!")
+slow_print(f"\nGefeliciteerd! Je hebt het bos verlaten met {gekozen_karakter}.")
