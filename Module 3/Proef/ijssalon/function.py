@@ -1,13 +1,6 @@
-# Prijzen
-PRIJS_BOLLETJE = 1.10
-PRIJS_HOORNTJE = 1.25
-PRIJS_BAKJE = 0.75
-
-# Variabelen om de bestelling op te slaan
-totaal_bolletjes = 0
-totaal_hoorntjes = 0
-totaal_bakjes = 0
-smaken = {"Aardbei": 0, "Chocolade": 0, "Munt": 0, "Vanille": 0}
+from data import PRIJS_BOLLETJE, PRIJS_HOORNTJE, PRIJS_BAKJE
+from data import PRIJS_SLAGROOM, PRIJS_SPRINKELS_PER_BOLLETJE, PRIJS_CARAMEL_SAUS_HOORNTJE, PRIJS_CARAMEL_SAUS_BAKJE
+from data import totaal_bolletjes, totaal_hoorntjes, totaal_bakjes, smaken, topping_kosten
 
 def welkom():
     print("Welkom bij Papi Gelato")
@@ -62,6 +55,26 @@ def vraag_container(a_bolletjes):
         else:
             print("Sorry, dat snap ik niet...")
 
+def vraag_topping(container, a_bolletjes):
+    global topping_kosten
+    while True:
+        topping = input("Wat voor topping wilt u: A) Geen, B) Slagroom, C) Sprinkels of D) Caramel Saus? ").upper()
+        if topping in ["A", "B", "C", "D"]:
+            if topping == "A":
+                return
+            elif topping == "B":
+                topping_kosten += PRIJS_SLAGROOM
+            elif topping == "C":
+                topping_kosten += PRIJS_SPRINKELS_PER_BOLLETJE * a_bolletjes
+            elif topping == "D":
+                if container == "hoorntje":
+                    topping_kosten += PRIJS_CARAMEL_SAUS_HOORNTJE
+                else:
+                    topping_kosten += PRIJS_CARAMEL_SAUS_BAKJE
+            return
+        else:
+            print("Sorry, dat snap ik niet...")
+
 def bevestig_bestelling(container, a_bolletjes):
     print(f"Hier is uw {container} met {a_bolletjes} bolletje(s).")
 
@@ -86,25 +99,8 @@ def print_bonnetje():
         print(f"Hoorntjes     : {totaal_hoorntjes} x €{PRIJS_HOORNTJE:.2f} = €{totaal_hoorntjes * PRIJS_HOORNTJE:.2f}")
     if totaal_bakjes > 0:
         print(f"Bakjes        : {totaal_bakjes} x €{PRIJS_BAKJE:.2f} = €{totaal_bakjes * PRIJS_BAKJE:.2f}")
-    totaal_prijs = (totaal_bolletjes * PRIJS_BOLLETJE) + (totaal_hoorntjes * PRIJS_HOORNTJE) + (totaal_bakjes * PRIJS_BAKJE)
+    if topping_kosten > 0:
+        print(f"Toppings      : €{topping_kosten:.2f}")
+    totaal_prijs = (totaal_bolletjes * PRIJS_BOLLETJE) + (totaal_hoorntjes * PRIJS_HOORNTJE) + (totaal_bakjes * PRIJS_BAKJE) + topping_kosten
     print(f"Totaal        : €{totaal_prijs:.2f}")
     print("-------------------")
-
-def main():
-    global totaal_bakjes
-    welkom()
-    while True:
-        a_bolletjes, container_type = vraag_bolletjes()
-        vraag_smaken(a_bolletjes)
-        if container_type == "keuze":
-            container = vraag_container(a_bolletjes)
-        else:
-            container = "bakje"
-            totaal_bakjes += 1
-        bevestig_bestelling(container, a_bolletjes)
-        if not vraag_nogmeer():
-            break
-    print_bonnetje()
-
-if __name__ == "__main__":
-    main()
