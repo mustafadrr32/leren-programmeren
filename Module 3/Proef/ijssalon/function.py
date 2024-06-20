@@ -6,7 +6,7 @@ def welkom():
     print("Welkom bij Papi Gelato")
 
 def vraag_bolletjes():
-    global totaal_bolletjes
+    global totaal_bolletjes, totaal_bakjes
     while True:
         try:
             a_bolletjes = int(input("Hoeveel bolletjes wilt u? "))
@@ -15,10 +15,12 @@ def vraag_bolletjes():
                 return a_bolletjes, "keuze"
             elif 4 <= a_bolletjes <= 8:
                 totaal_bolletjes += a_bolletjes
+                totaal_bakjes += 1
+                
                 return a_bolletjes, "bakje"
             elif a_bolletjes > 8:
                 print("Sorry, zulke grote bakken hebben we niet.")
-                continue
+                continue    
             else:
                 print("Sorry, dat snap ik niet...")
                 continue
@@ -91,10 +93,9 @@ def vraag_nogmeer():
 def print_bonnetje():
     print("\n---[ Bonnetje ]---")
     if totaal_bolletjes > 0:
-        print(f"Bolletjes     : {totaal_bolletjes} x €{PRIJS_BOLLETJE:.2f} = €{totaal_bolletjes * PRIJS_BOLLETJE:.2f}")
         for smaak, aantal in smaken.items():
             if aantal > 0:
-                print(f"  {smaak}  : {aantal} bolletje(s)")
+                print(f"  B.{smaak}  : {aantal} x  {PRIJS_BOLLETJE:.2f} = {aantal * PRIJS_BOLLETJE:.2f} ")
     if totaal_hoorntjes > 0:
         print(f"Hoorntjes     : {totaal_hoorntjes} x €{PRIJS_HOORNTJE:.2f} = €{totaal_hoorntjes * PRIJS_HOORNTJE:.2f}")
     if totaal_bakjes > 0:

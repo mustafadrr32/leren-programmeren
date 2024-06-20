@@ -1,4 +1,4 @@
-from function import welkom, vraag_bolletjes, vraag_smaken, vraag_container, vraag_topping, bevestig_bestelling, vraag_nogmeer, print_bonnetje
+from function import *
 from data import totaal_bakjes
 
 def main():
