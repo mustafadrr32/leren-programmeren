@@ -10,3 +10,9 @@ totaal_hoorntjes = 0
 totaal_bakjes = 0
 smaken = {"Aardbei": 0, "Chocolade": 0, "Munt": 0, "Vanille": 0}
 topping_kosten = 0.0
+
+bestelling = {
+    "bolletjes": 0,
+    "bakje": 0,
+    "hoorntje": 0
+    }

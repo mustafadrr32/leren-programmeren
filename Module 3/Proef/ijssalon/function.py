@@ -1,31 +1,58 @@
-from data import PRIJS_BOLLETJE, PRIJS_HOORNTJE, PRIJS_BAKJE
-from data import PRIJS_SLAGROOM, PRIJS_SPRINKELS_PER_BOLLETJE, PRIJS_CARAMEL_SAUS_HOORNTJE, PRIJS_CARAMEL_SAUS_BAKJE
-from data import totaal_bolletjes, totaal_hoorntjes, totaal_bakjes, smaken, topping_kosten
+from data import *
 
 def welkom():
     print("Welkom bij Papi Gelato")
 
-def vraag_bolletjes():
-    global totaal_bolletjes, totaal_bakjes
+def vraag_aantal_bolletjes() -> int:
     while True:
         try:
             a_bolletjes = int(input("Hoeveel bolletjes wilt u? "))
-            if 1 <= a_bolletjes <= 3:
-                totaal_bolletjes += a_bolletjes
-                return a_bolletjes, "keuze"
-            elif 4 <= a_bolletjes <= 8:
-                totaal_bolletjes += a_bolletjes
-                totaal_bakjes += 1
-                
-                return a_bolletjes, "bakje"
-            elif a_bolletjes > 8:
+            if a_bolletjes > 8:
                 print("Sorry, zulke grote bakken hebben we niet.")
-                continue    
+            elif a_bolletjes <= 8 and a_bolletjes > 0:
+                return a_bolletjes
             else:
                 print("Sorry, dat snap ik niet...")
-                continue
         except ValueError:
             print("Sorry, dat snap ik niet...")
+
+def vraag_verpakking(aantal:int) -> str:
+    while True: 
+        if aantal >= 4 and aantal <= 8:
+            return "bakje"
+        else:
+            keuze = input(f"Wilt u deze {aantal} bolletje(s) in een hoorntje of een bakje? ").lower()
+        if keuze in ["hoorntje", "bakje"]:
+            return keuze
+        else:
+            print("Sorry, dat snap ik niet...")
+
+
+def toon_bestelling(aantal:int ,verpakking:str) -> bool:
+    print(f"Hier is uw {verpakking} met {aantal} bolletje(s).")
+    while True:
+        vraag_bestellen = input("Wilt u nog meer bestellen? (j/n) ").lower()
+        if vraag_bestellen == "j":
+            return True
+        elif vraag_bestellen == "n":
+            return False
+        else: 
+            print("Sorry, dat snap ik niet...")
+
+
+
+def print_bonnetje(bestelling:dict):
+    print("---[ Bonnetje ]---")
+    print(bestelling)
+    # if totaal_bolletjes > 0:
+    #     print(f"Bolletjes: {totaal_bolletjes}")
+    # if totaal_hoorntjes > 0:
+    #     print(f"Hoorntjes: {totaal_hoorntjes}")
+    # if totaal_bakjes > 0:
+    #     print(f"Bakjes: {totaal_bakjes}")
+    print("-------------------")
+
+
 
 def vraag_smaken(a_bolletjes):
     for i in range(1, a_bolletjes + 1):
@@ -89,19 +116,3 @@ def vraag_nogmeer():
             return False
         else:
             print("Sorry, dat snap ik niet...")
-
-def print_bonnetje():
-    print("\n---[ Bonnetje ]---")
-    if totaal_bolletjes > 0:
-        for smaak, aantal in smaken.items():
-            if aantal > 0:
-                print(f"  B.{smaak}  : {aantal} x  {PRIJS_BOLLETJE:.2f} = {aantal * PRIJS_BOLLETJE:.2f} ")
-    if totaal_hoorntjes > 0:
-        print(f"Hoorntjes     : {totaal_hoorntjes} x €{PRIJS_HOORNTJE:.2f} = €{totaal_hoorntjes * PRIJS_HOORNTJE:.2f}")
-    if totaal_bakjes > 0:
-        print(f"Bakjes        : {totaal_bakjes} x €{PRIJS_BAKJE:.2f} = €{totaal_bakjes * PRIJS_BAKJE:.2f}")
-    if topping_kosten > 0:
-        print(f"Toppings      : €{topping_kosten:.2f}")
-    totaal_prijs = (totaal_bolletjes * PRIJS_BOLLETJE) + (totaal_hoorntjes * PRIJS_HOORNTJE) + (totaal_bakjes * PRIJS_BAKJE) + topping_kosten
-    print(f"Totaal        : €{totaal_prijs:.2f}")
-    print("-------------------")
