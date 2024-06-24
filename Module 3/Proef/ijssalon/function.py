@@ -7,7 +7,7 @@ def vraag_klant_type():
             is_business_customer = klant_type == "2"
             return klant_type
         else:
-            print("Sorry, dat snap ik niet...")
+            print("Sorry dat is geen optie die we aanbieden...")
 
 def welkom():
     print("Welkom bij Papi Gelato")
@@ -28,27 +28,25 @@ def vraag_bolletjes():
                 print("Sorry, zulke grote bakken hebben we niet.")
                 continue
             else:
-                print("Sorry, dat snap ik niet...")
+                print("Sorry dat is geen optie die we aanbieden...")
                 continue
         except ValueError:
-            print("Sorry, dat snap ik niet...")
+            print("Sorry dat is geen optie die we aanbieden...")
 
 def vraag_smaken(a_bolletjes):
     for i in range(1, a_bolletjes + 1):
         while True:
-            smaak = input(f"Welke smaak wilt u voor bolletje nummer {i}? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ").upper()
+            smaak = input(f"Welke smaak wilt u voor bolletje nummer {i}? A) Aardbei, C) Chocolade of V) Vanille? ").upper()
             if smaak in ["A", "C", "M", "V"]:
                 if smaak == "A":
                     smaken["Aardbei"] += 1
                 elif smaak == "C":
                     smaken["Chocolade"] += 1
-                elif smaak == "M":
-                    smaken["Munt"] += 1
                 elif smaak == "V":
                     smaken["Vanille"] += 1
                 break
             else:
-                print("Sorry dat snap ik niet...")
+                print("Sorry dat is geen optie die we aanbieden...")
 
 def vraag_container(a_bolletjes):
     global totaal_hoorntjes, totaal_bakjes
@@ -61,7 +59,7 @@ def vraag_container(a_bolletjes):
                 totaal_bakjes += 1
             return keuze
         else:
-            print("Sorry, dat snap ik niet...")
+            print("Sorry dat is geen optie die we aanbieden...")
 
 def vraag_topping(container, a_bolletjes):
     global topping_kosten
@@ -81,7 +79,7 @@ def vraag_topping(container, a_bolletjes):
                     topping_kosten += PRIJS_CARAMEL_SAUS_BAKJE
             return
         else:
-            print("Sorry, dat snap ik niet...")
+            print("Sorry dat is geen optie die we aanbieden...")
 
 def bevestig_bestelling(container, a_bolletjes):
     print(f"Hier is uw {container} met {a_bolletjes} bolletje(s).")
@@ -94,7 +92,7 @@ def vraag_nogmeer():
         elif nogmeer == "n":
             return False
         else:
-            print("Sorry, dat snap ik niet...")
+            print("Sorry dat is geen optie die we aanbieden...")
 
 def vraag_liters():
     global totaal_liters
@@ -105,26 +103,24 @@ def vraag_liters():
                 totaal_liters = a_liters
                 return a_liters
             else:
-                print("Sorry, dat snap ik niet...")
+                print("Sorry dat is geen optie die we aanbieden...")
         except ValueError:
-            print("Sorry, dat snap ik niet...")
+            print("Sorry dat is geen optie die we aanbieden...")
 
 def vraag_liters_smaken(a_liters):
     for i in range(1, a_liters + 1):
         while True:
-            smaak = input(f"Welke smaak wilt u voor liter nummer {i}? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ").upper()
+            smaak = input(f"Welke smaak wilt u voor liter nummer {i}? A) Aardbei, C) Chocolade of V) Vanille? ").upper()
             if smaak in ["A", "C", "M", "V"]:
                 if smaak == "A":
                     smaken["Aardbei"] += 1
                 elif smaak == "C":
                     smaken["Chocolade"] += 1
-                elif smaak == "M":
-                    smaken["Munt"] += 1
                 elif smaak == "V":
                     smaken["Vanille"] += 1
                 break
             else:
-                print("Sorry dat snap ik niet...")
+                print("Sorry dat is geen optie die we aanbieden...")
 
 def print_bonnetje():
     print("\n---[ Bonnetje ]---")
